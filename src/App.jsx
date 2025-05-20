@@ -33,10 +33,14 @@ function App() {
   }
   const maxProduct = Math.max(...filteredProducts.map((p) => p.price));
   const minProduct = Math.min(...filteredProducts.map((p) => p.price));
-  // const productsLongDesc = filteredProducts.filter((p) => p.title.length > 20);
-  //const countLongProduct = productsLongDesc.length;
-  //const totalPrice = filteredProducts.reduce((pf, p) => pf + p.price, 0);
-  //const PromDisc =    filteredProducts.length > 0      ? filteredProducts.reduce((acc, p) => acc + p.discountPercentage, 0) /        filteredProducts.length      : 0;
+  const productsLongTit = filteredProducts.filter((p) => p.title.length > 20);
+  const countLongProduct = productsLongTit.length;
+  const totalPrice = filteredProducts.reduce((pf, p) => pf + p.price, 0);
+  const PromDisc =
+    filteredProducts.length > 0
+      ? filteredProducts.reduce((acc, p) => acc + p.discountPercentage, 0) /
+        filteredProducts.length
+      : 0;
 
   const [show, setShow] = useState(true);
 
@@ -66,13 +70,14 @@ function App() {
       {show && (
         <StatsPanel
           Total={totalProducts}
-          // CantProd20={countLongProduct}
-          // PromDisc={PromDisc}
+          CantProdTit={countLongProduct}
+          PromDisc={PromDisc.toFixed(2)}
           max={maxProduct}
           min={minProduct}
-          // totalPrice={totalPrice}
+          totalPrice={totalPrice.toFixed(2)}
         />
       )}
+      {/*<p>Promedio de descuento: {PromDisc.toFixed(2)}%</p>*/}
       {/*Renderizacion condicional*/}
       {filteredProducts.length === 0 && <div>No se encontraron productos</div>}
     </>
