@@ -1,12 +1,12 @@
 // src/components/ProductList.jsx
-function ProductList({ products }) {
-  if (products.length === 0) {
+function ProductList({ props }) {
+  if (props.length === 0) {
     return <div>No se encontraron productos</div>;
   }
 
   return (
     <ul>
-      {products.map((p) => (
+      {props.map((p) => (
         <li key={p.id}>
           {p.title} - ${p.price}
         </li>
