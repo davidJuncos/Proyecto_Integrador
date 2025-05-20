@@ -9,7 +9,7 @@ function StatsPanel(props) {
       <p>Promedio de descuento: {props.PromDisc}%</p>
       {/* NUEVO */}
       <p>Precio máximo: {props.max}</p>
-      <p>Precio mínimo: {props.mint}</p>
+      <p>Precio mínimo: {props.min}</p>
       <p>Precio total de productos filtrados: ${props.totalPrice}</p>
     </div>
   );
