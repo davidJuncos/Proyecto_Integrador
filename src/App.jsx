@@ -50,7 +50,10 @@ function App() {
         Catálogo de Productos
       </h1>
 
-      <button onClick={toggleDarkMode}>
+      <button
+        onClick={toggleDarkMode}
+        className="bg-gray-200 dark:bg-gray-700 text-black dark:text-white px-4 py-2 rounded mb-4"
+      >
         Modo {darkMode ? "Claro" : "Oscuro"}
       </button>
       <input
@@ -66,7 +69,10 @@ function App() {
       <ProductList products={filteredProducts} />
 
       {/*className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"*/}
-      <button onClick={() => setShow(!show)}>
+      <button
+        onClick={() => setShow(!show)}
+        className="bg-gray-200 dark:bg-gray-700 text-black dark:text-white px-4 py-2 rounded mb-4"
+      >
         {show ? "Ocultar" : "Mostrar"}
       </button>
 

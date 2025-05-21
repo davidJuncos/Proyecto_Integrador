@@ -10,7 +10,7 @@ function ProductList({ products }) {
           {products.map((product) => (
             <div
               key={product.id}
-              className="border p-4 m-2 rounded shadow bg-white"
+              className="border p-4 m-2 rounded shadow bg-white transform transition duration-300 hover:scale-105"
             >
               <img
                 src={product.thumbnail}

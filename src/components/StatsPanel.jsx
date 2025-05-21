@@ -9,24 +9,28 @@ function StatsPanel({ Total, CantProdTit, PromDisc, max, min, totalPrice }) {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h2 className="text-2xl font-bold text-center mb-6 text-gray-700">
-        Estadísticas
-      </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {stats.map((stat, index) => (
-          <div
-            key={index}
-            className="border rounded-lg p-6 shadow-md bg-white text-center"
-          >
-            <p className="text-gray-500 text-sm mb-2 uppercase tracking-wider">
-              {stat.label}
-            </p>
-            <p className="text-xl font-semibold text-blue-600">{stat.value}</p>
-          </div>
-        ))}
+    <section className="bg-blue-50 py-12 px-4">
+      <div className="container mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-6 text-blue-600">
+          Estadísticas
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {stats.map((stat, index) => (
+            <div
+              key={index}
+              className="border rounded-lg p-6 shadow-md bg-white text-center"
+            >
+              <p className="text-gray-500 text-sm mb-2 uppercase tracking-wider">
+                {stat.label}
+              </p>
+              <p className="text-xl font-semibold text-blue-600">
+                {stat.value}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 
