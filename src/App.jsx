@@ -1,18 +1,23 @@
 import "./App.css";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import StatsPanel from "./components/StatsPanel";
 import ProductList from "./components/ProductList";
 
 function App() {
+  //Estados
   const [products, setProducta] = useState([]);
   const [search, setSearch] = useState("");
-
+  const [show, setShow] = useState(true);
+  //Ref
+  const containerRef = useRef(null);
   useEffect(() => {
     axios.get("https://dummyjson.com/products?limit=100").then((res) => {
       setProducta(res.data.products);
     });
   }, []);
+  const [darkMode, setDarkMode] = useState(false);
+
   {
     /*Filtarmos productos */
   }
@@ -32,12 +37,21 @@ function App() {
         filteredProducts.length
       : 0;
 
-  const [show, setShow] = useState(true);
+  /*const [show, setShow] = useState(true);*/
 
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    containerRef.current.classList.toggle("dark-mode");
+    //currentRef.current.classList.toggle("dark-mode"));
+  };
   return (
-    <>
+    <div ref={containerRef}>
       <h1>Axios</h1>
 
+      {/*<button onClick={toggleDarkMode}>Modo {darkMode ? 'Claro': 'Oscuro'}</button>*/}
+      <button onClick={toggleDarkMode}>
+        Modo {darkMode ? "Claro" : "Oscuro"}
+      </button>
       <input
         type="text"
         placeholder="Buscar Producto"
@@ -49,7 +63,9 @@ function App() {
       {/*Usamos componente nuevo*/}
       <ProductList products={filteredProducts} />
 
-      <button onClick={() => setShow(!show)}>Ocultar</button>
+      <button onClick={() => setShow(!show)}>
+        {show ? "Ocultar" : "Mostrar"}
+      </button>
 
       {show && (
         <StatsPanel
@@ -61,7 +77,7 @@ function App() {
           totalPrice={totalPrice.toFixed(2)}
         />
       )}
-    </>
+    </div>
   );
 }
 
