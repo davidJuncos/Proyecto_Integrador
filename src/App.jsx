@@ -46,9 +46,10 @@ function App() {
   };
   return (
     <div ref={containerRef}>
-      <h1>Axios</h1>
+      <h1 className="text-3xl text-blue-600 font-bold text-center my-4">
+        Catálogo de Productos
+      </h1>
 
-      {/*<button onClick={toggleDarkMode}>Modo {darkMode ? 'Claro': 'Oscuro'}</button>*/}
       <button onClick={toggleDarkMode}>
         Modo {darkMode ? "Claro" : "Oscuro"}
       </button>
@@ -59,10 +60,12 @@ function App() {
         onChange={(e) => {
           setSearch(e.target.value);
         }}
+        className="border border-gray-300 rounded p-2 w-full max-w-md mx-auto block mb-6"
       />
       {/*Usamos componente nuevo*/}
       <ProductList products={filteredProducts} />
 
+      {/*className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"*/}
       <button onClick={() => setShow(!show)}>
         {show ? "Ocultar" : "Mostrar"}
       </button>
