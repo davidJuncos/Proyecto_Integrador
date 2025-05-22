@@ -1,12 +1,66 @@
-# React + Vite
+# 📦 Catálogo de Productos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto muestra un catálogo de productos con una interfaz visual moderna y estadísticas clave del inventario.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📊 Estadísticas Agregadas
 
-## Expanding the ESLint configuration
+En este proyecto se integraron estadísticas clave para entender mejor los productos disponibles en el catálogo:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Agregar estadísticas adicionales
+   Incorporar estadísticas nuevas a la sección de estadísticas:
+
+- **Total de productos:** El precio total de todos los productos filtrados.
+- **El producto más caro** (mostrar el nombre y el precio).
+- **El producto más barato** (mostrar el nombre y el precio).
+- **Cantidad de Títulos largos:**La cantidad de productos cuyo título contiene más de 20 caracteres.
+- **Promedio de descuento (%):** El promedio de descuento ( discountPercentage ) de los productos filtrados.
+  Proponer otras estadísticas, siempre que se basen en los productos filtrados y se
+  calculen dinámicamente.
+
+Estas Valores se calculan en el componente principal y luego se pasan como `props` al componente `StatsPanel` para su presentación.
+
+---
+
+## División del Código en Componentes
+
+El código se dividió en componentes reutilizables para mantener la claridad, escalabilidad y separación de responsabilidades. Los principales componentes son:
+
+### StatsPanel
+
+Este componente se encarga de mostrar las estadísticas generales del catálogo. Recibe como propiedades los valores previamente calculados y los presenta en una cuadrícula visualmente atractiva.
+
+**Responsabilidades:**
+
+- Mostrar métricas clave como cantidad total, precios extremos, y promedio de descuento.
+- Presentación clara con estilo visual limpio, adaptable a diferentes tamaños de pantalla.
+
+```jsx
+<StatsPanel
+  Total={...}
+  CantProdTit={...}
+  PromDisc={...}
+  max={...}
+  min={...}
+  totalPrice={...}
+/>
+```
+
+---
+
+### ProductList
+
+Este componente muestra la lista de productos en forma de tarjetas. Cada tarjeta incluye información como imagen, categoría, título, descripción, precio y rating del producto.
+
+**Responsabilidades:**
+
+- Renderizar dinámicamente todos los productos recibidos como `props`.
+- Mostrar una cuadrícula responsiva con diseño atractivo y animaciones sutiles al pasar el cursor.
+- Proveer retroalimentación en caso de que no se encuentren productos (`"No se encontraron productos"`).
+
+```jsx
+<ProductList products={productosFiltrados} />
+```
+
+Cada producto se representa como una tarjeta individual con su miniatura, título, descripción corta, precio y calificación visual.
