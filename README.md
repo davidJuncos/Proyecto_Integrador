@@ -11,10 +11,7 @@ En este proyecto se integraron estadísticas clave para entender mejor los produ
 1. Agregar estadísticas adicionales
    Incorporar estadísticas nuevas a la sección de estadísticas:
 
-- **Total de productos:** El precio total de todos los productos filtrados.
-- **El producto más caro** (mostrar el nombre y el precio).
-- **El producto más barato** (mostrar el nombre y el precio).
-- **Cantidad de Títulos largos:**La cantidad de productos cuyo título contiene más de 20 caracteres.
+- **Cantidad de Títulos largos:** La cantidad de productos cuyo título contiene más de 20 caracteres.
 - **Promedio de descuento (%):** El promedio de descuento ( discountPercentage ) de los productos filtrados.
   Proponer otras estadísticas, siempre que se basen en los productos filtrados y se
   calculen dinámicamente.
